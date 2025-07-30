@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl1lwgellihna"]
+
+[ext_resource type="PackedScene" uid="uid://dwi05s3lph2yf" path="res://cat/cat.gltf" id="1_oi4r3"]
+[ext_resource type="Script" uid="uid://cei603j5ny87b" path="res://cat_controller.gd" id="1_p16eh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mgf30"]
+radius = 1.49228
+
+[node name="CatController" type="CharacterBody3D"]
+script = ExtResource("1_p16eh")
+
+[node name="LocomotionCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("SphereShape3D_mgf30")
+
+[node name="CatModel" parent="." instance=ExtResource("1_oi4r3")]

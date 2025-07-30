@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b78f74optexjs"]
+
+[ext_resource type="PackedScene" uid="uid://cl1lwgellihna" path="res://cat_controller.tscn" id="1_d14nv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d14nv"]
+
+[sub_resource type="Sky" id="Sky_tlyjq"]
+sky_material = SubResource("ProceduralSkyMaterial_d14nv")
+
+[sub_resource type="Environment" id="Environment_cxxsp"]
+sky = SubResource("Sky_tlyjq")
+ambient_light_source = 3
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.905687, 0.423947, 0, -0.423947, 0.905687, 0, 22.5575, 16.36)
+
+[node name="CatController" parent="." instance=ExtResource("1_d14nv")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cxxsp")
