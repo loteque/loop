@@ -1,16 +1,41 @@
 [gd_scene load_steps=4 format=3 uid="uid://cl1lwgellihna"]
 
 [ext_resource type="PackedScene" uid="uid://dwi05s3lph2yf" path="res://cat/cat.gltf" id="1_oi4r3"]
-[ext_resource type="Script" uid="uid://cei603j5ny87b" path="res://cat_controller.gd" id="1_p16eh"]
+[ext_resource type="Script" uid="uid://bg2iouvdya6wj" path="res://player_controller.gd" id="1_p16eh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mgf30"]
 radius = 1.49228
 
-[node name="CatController" type="CharacterBody3D"]
+[node name="CatController" type="CharacterBody3D" node_paths=PackedStringArray("ani_player")]
 script = ExtResource("1_p16eh")
+ani_player = NodePath("CatModel/AnimationPlayer")
 
 [node name="LocomotionCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("SphereShape3D_mgf30")
 
 [node name="CatModel" parent="." instance=ExtResource("1_oi4r3")]
+
+[node name="Skeleton3D" parent="CatModel/Armature" index="0"]
+bones/1/position = Vector3(2.98091e-16, 1.34248, -1.80586)
+bones/1/rotation = Quaternion(-0.758077, 4.452e-17, 4.45199e-17, 0.652165)
+bones/2/rotation = Quaternion(0.177485, -4.78538e-18, -8.54934e-17, 0.984123)
+bones/3/rotation = Quaternion(0.144435, -5.54798e-17, -4.62456e-17, 0.989514)
+bones/4/position = Vector3(0.390257, 1.23267, -0.983409)
+bones/5/rotation = Quaternion(0.0461758, -0.0953947, 0.0419937, 0.993481)
+bones/6/position = Vector3(-0.390257, 0.584276, -0.847282)
+bones/6/rotation = Quaternion(-0.831247, 0.0383284, 0.065769, 0.550666)
+bones/7/rotation = Quaternion(-0.23232, 0.118583, -0.0497654, 0.9641)
+bones/8/rotation = Quaternion(-1.40829e-06, 0.354353, 0.935112, -5.33659e-07)
+bones/9/rotation = Quaternion(-0.141247, 8.37445e-14, -4.25438e-07, 0.989974)
+bones/10/rotation = Quaternion(-0.531792, -5.33754e-08, -1.75178e-06, 0.846875)
+bones/11/position = Vector3(0.390257, 0.993306, -1.77847)
+bones/11/rotation = Quaternion(0.997733, 0.0670931, 0.000357559, -0.00531565)
+bones/12/rotation = Quaternion(-0.551393, -0.0453693, 0.0434573, 0.831877)
+bones/13/rotation = Quaternion(0.271102, 0.00405381, 0.0143912, 0.962434)
+bones/14/position = Vector3(-0.390257, 1.00514, -1.9796)
+bones/14/rotation = Quaternion(0.937451, -0.0630394, -0.0229705, -0.341589)
+bones/15/rotation = Quaternion(-0.459288, 0.0377908, -0.0462991, 0.886275)
+bones/16/rotation = Quaternion(0.357548, -0.00534641, -0.0139627, 0.933775)
+
+[editable path="CatModel"]
