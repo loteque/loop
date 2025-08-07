@@ -9,7 +9,7 @@ class_name PlayerController
 @export var max_rec_frames: int = 360
 @export var ani_player: AnimationPlayer
 
-@onready var rec_buff = RecBuff.new(260, self, ani_player)
+@onready var rec_buff = RecBuff.new(self, 160, ani_player)
 
 var is_playback: bool = false
 
@@ -67,8 +67,8 @@ func is_activate_playback_just_pressed() -> bool:
 
 func _physics_process(_delta) -> void:
     if is_activate_playback_just_pressed(): activate_playback()
-    if is_playback: rec_buff.playback_frame(); return
+    if is_playback: rec_buff.retrieve_all(); return
     var is_moving = apply_player_inputs()
     toggle_walk_animation_on(is_moving)
     move_and_slide()
-    rec_buff.write_frame()
+    rec_buff.push_all()
